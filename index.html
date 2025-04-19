@@ -1,0 +1,458 @@
+<!DOCTYPE html> <!-- Declares the document type and HTML version -->
+<html lang="en"> <!-- Root HTML element with language attribute set to English -->
+<head> <!-- Container for metadata and linked resources -->
+    <meta charset="UTF-8"> <!-- Specifies character encoding for the document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Makes the page responsive for different devices -->
+    <title>My Portfolio</title> <!-- Sets the browser tab title -->
+    <!-- BY: Ghulam Mustafa Katbar -->
+     <!-- Follow on LinkdIn  @GM Katbar -->
+    <style> /* Internal CSS styles begin here */
+        /* CSS Reset - removes default browser styles for consistent appearance */
+        * {
+            margin: 0; /* Removes margin spacing from all elements */
+            padding: 0; /* Removes padding from all elements */
+            box-sizing: border-box; /* Makes width/height include padding and border */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Sets default font for all elements */
+        }
+
+        /* Body styling */
+        body {
+            background-color: #F5F5F5; /* Light background color */
+            color: #333333; /* Dark text color */
+            line-height: 1.6; /* Sets line height for better readability */
+        }
+
+        /* Container to center and limit width of content */
+        .container {
+            width: 90%; /* Takes 90% of parent width */
+            max-width: 1200px; /* Maximum width of 1200px */
+            margin: 0 auto; /* Centers the container horizontally */
+            padding: 0 15px; /* Adds padding on left and right sides */
+        }
+
+        /* Header styling */
+        header {
+            background-color: #5222D0; /* Purple background */
+            color: white; /* White text */
+            padding: 20px 0; /* Adds padding to top and bottom */
+            position: sticky; /* Makes header stick to top when scrolling */
+            top: 0; /* Sticks to the top edge */
+            z-index: 100; /* Ensures header appears above other content */
+        }
+
+        /* Navigation bar container */
+        .navbar {
+            display: flex; /* Creates a flexible container */
+            justify-content: space-between; /* Spreads items to the edges */
+            align-items: center; /* Centers items vertically */
+        }
+
+        /* Logo styling */
+        .logo {
+            font-size: 24px; /* Sets font size */
+            font-weight: bold; /* Makes text bold */
+            color: white; /* Sets text color */
+            text-decoration: none; /* Removes underline from link */
+        }
+
+        /* Navigation menu list */
+        .nav-menu {
+            display: flex; /* Creates a horizontal layout */
+            list-style: none; /* Removes bullet points */
+        }
+
+        /* Navigation menu items */
+        .nav-menu li {
+            margin-left: 30px; /* Adds space between menu items */
+        }
+
+        /* Navigation links */
+        .nav-menu a {
+            color: white; /* Sets link color to white */
+            text-decoration: none; /* Removes underline */
+            font-weight: 500; /* Makes text slightly bold */
+            transition: color 0.3s; /* Smooth color change on hover */
+        }
+
+        /* Navigation link hover effect */
+        .nav-menu a:hover {
+            color: #EC615B; /* Changes to coral color on hover */
+        }
+
+        /* Banner section - main banner area */
+        .banner {
+            height: 500px; /* Sets fixed height */
+            background: linear-gradient(rgba(82, 34, 208, 0.8), rgba(82, 34, 208, 0.9)), url('/api/placeholder/1200/500'); /* Gradient overlay on background image */
+            background-size: cover; /* Makes background cover entire area */
+            background-position: center; /* Centers the background image */
+            color: white; /* Sets text color */
+            display: flex; /* Uses flexbox for centering content */
+            align-items: center; /* Centers content vertically */
+            text-align: center; /* Centers text horizontally */
+        }
+
+        /* Banner content container */
+        .banner-content {
+            width: 100%; /* Takes full width */
+        }
+
+        /* Main heading style */
+        .banner h1 {
+            font-size: 48px; /* Large font size */
+            margin-bottom: 20px; /* Space below heading */
+            animation: fadeIn 1.5s; /* Animation effect */
+        }
+        /* Subheading style */
+        .banner p {
+            font-size: 20px; /* Medium font size */
+            margin-bottom: 30px; /* Space below paragraph */
+            max-width: 600px; /* Maximum width for better readability */
+            margin-left: auto; /* Centers block with max-width */
+            margin-right: auto; /* Centers block with max-width */
+            animation: fadeIn 2s; /* Animation with delay */
+        }
+
+        /* Fade-in animation definition */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); } /* Starts transparent and shifted down */
+            to { opacity: 1; transform: translateY(0); } /* Ends fully visible and in position */
+        }
+
+        /* Button styling */
+        .btn {
+            display: inline-block; /* Makes it block-like but inline */
+            background-color: #EC615B; /* Coral background */
+            color: white; /* White text */
+            padding: 12px 30px; /* Vertical and horizontal padding */
+            border-radius: 50px; /* Rounded corners */
+            text-decoration: none; /* Removes underline */
+            font-weight: bold; /* Bold text */
+            text-transform: uppercase; /* Makes text uppercase */
+            letter-spacing: 1px; /* Spaces out letters */
+            transition: all 0.3s; /* Smooth transition for hover effect */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds shadow for depth */
+            animation: fadeIn 2.5s; /* Animation with delay */
+        }
+
+        /* Button hover effect */
+        .btn:hover {
+            background-color: #d84f4a; /* Darker coral color */
+            transform: translateY(-3px); /* Shifts button up slightly */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Larger shadow */
+        }
+
+        /* About section */
+        .about {
+            padding: 80px 0; /* Vertical padding */
+            text-align: center; /* Centers text */
+        }
+
+        /* Section heading */
+        .section-title {
+            font-size: 36px; /* Large font size */
+            margin-bottom: 50px; /* Space below title */
+            color: #5222D0; /* Purple color */
+            position: relative; /* For the underline decoration */
+            display: inline-block; /* Allows width to fit content */
+        }
+
+        /* Section title decoration (underline) */
+        .section-title::after {
+            content: ''; /* Empty content for decoration */
+            position: absolute; /* Positioned absolutely within parent */
+            width: 50px; /* Width of underline */
+            height: 3px; /* Height of underline */
+            background-color: #EC615B; /* Coral color */
+            bottom: -10px; /* Position below text */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Center adjustment */
+        }
+
+        /* Skills section */
+        .skills {
+            padding: 80px 0; /* Vertical padding */
+            background-color: #f0f0f0; /* Light gray background */
+        }
+
+        /* Skills container */
+        .skills-container {
+            display: flex; /* Flexbox layout */
+            flex-wrap: wrap; /* Allows items to wrap to next line */
+            justify-content: center; /* Centers items horizontally */
+            gap: 30px; /* Space between items */
+        }
+
+        /* Individual skill card */
+        .skill-card {
+            background-color: white; /* White background */
+            padding: 30px; /* Padding around content */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+            width: calc(33.333% - 30px); /* One third width minus gap */
+            text-align: center; /* Centers text */
+            transition: transform 0.3s; /* Smooth transform on hover */
+        }
+
+        /* Skill card hover effect */
+        .skill-card:hover {
+            transform: translateY(-10px); /* Moves card up on hover */
+        }
+
+        /* Skill icon area */
+        .skill-icon {
+            font-size: 40px; /* Large icon size */
+            margin-bottom: 20px; /* Space below icon */
+            color: #5222D0; /* Purple color */
+        }
+
+        /* Projects section */
+        .projects {
+            padding: 80px 0; /* Vertical padding */
+            text-align: center; /* Center text */
+        }
+
+        /* Projects grid */
+        .projects-grid {
+            display: grid; /* CSS Grid layout */
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive columns */
+            gap: 30px; /* Space between grid items */
+            margin-top: 50px; /* Space above grid */
+        }
+
+        /* Project card */
+        .project-card {
+            background-color: white; /* White background */
+            border-radius: 10px; /* Rounded corners */
+            overflow: hidden; /* Hides overflow content */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+            transition: transform 0.3s; /* Smooth transform on hover */
+        }
+
+        /* Project card hover effect */
+        .project-card:hover {
+            transform: translateY(-10px); /* Moves card up */
+        }
+
+        /* Project image */
+        .project-img {
+            height: 200px; /* Fixed height */
+            background-color: #ddd; /* Gray placeholder */
+            background-size: cover; /* Cover entire area */
+            background-position: center; /* Center image */
+        }
+
+        /* Project details */
+        .project-info {
+            padding: 20px; /* Padding around content */
+        }
+
+        /* Contact section */
+        .contact {
+            padding: 80px 0; /* Vertical padding */
+            background-color: #f0f0f0; /* Light gray background */
+            text-align: center; /* Center text */
+        }
+
+        /* Contact form */
+        .contact-form {
+            max-width: 600px; /* Maximum width */
+            margin: 0 auto; /* Center horizontally */
+            background-color: white; /* White background */
+            padding: 30px; /* Padding around content */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+        }
+
+        /* Form input and textarea */
+        .form-control {
+            width: 100%; /* Full width */
+            padding: 12px; /* Padding inside input */
+            margin-bottom: 20px; /* Space below input */
+            border: 1px solid #ddd; /* Light border */
+            border-radius: 5px; /* Rounded corners */
+            font-size: 16px; /* Font size */
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333333; /* Dark background */
+            color: white; /* White text */
+            padding: 30px 0; /* Vertical padding */
+            text-align: center; /* Center text */
+        }
+
+        /* Social media icons container */
+        .social-icons {
+            display: flex; /* Flexbox layout */
+            justify-content: center; /* Center horizontally */
+            margin-bottom: 20px; /* Space below icons */
+        }
+
+        /* Individual social icon */
+        .social-icon {
+            display: inline-flex; /* Inline flex container */
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+            width: 40px; /* Fixed width */
+            height: 40px; /* Fixed height */
+            background-color: #444; /* Dark gray background */
+            color: white; /* White color */
+            border-radius: 50%; /* Circular shape */
+            margin: 0 10px; /* Horizontal margin */
+            text-decoration: none; /* Remove underline */
+            transition: background-color 0.3s; /* Smooth color change */
+        }
+
+        /* Social icon hover effect */
+        .social-icon:hover {
+            background-color: #EC615B; /* Coral on hover */
+        }
+
+        /* Responsive styles for smaller screens */
+        @media (max-width: 768px) {
+            .skill-card {
+                width: calc(50% - 30px); /* Two cards per row on tablets */
+            }
+            
+            .banner h1 {
+                font-size: 36px; /* Smaller heading */
+            }
+            
+            .banner p {
+                font-size: 18px; /* Smaller paragraph */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .skill-card {
+                width: 100%; /* Full width on mobile */
+            }
+            
+            .nav-menu {
+                display: none; /* Hide menu on mobile - would be replaced with a hamburger menu in a complete site */
+            }
+            
+            .banner h1 {
+                font-size: 28px; /* Even smaller heading */
+            }
+        }
+    </style>
+</head>
+<body> <!-- Contains all visible content -->
+    <!-- Header section with navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Portfolio</a> <!-- Logo link -->
+                <ul class="nav-menu"> <!-- Navigation menu -->
+                    <li><a href="#home">Home</a></li> <!-- Menu item with anchor link -->
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner section - main welcome area -->
+    <section class="banner" id="home">
+        <div class="container">
+            <div class="banner-content">
+                <h1>Welcome to My Portfolio</h1> <!-- Main heading -->
+                <p>I'm a web developer passionate about creating beautiful and functional websites</p> <!-- Subheading -->
+                <a href="www.linkedin.com/in/gm-katbar" class="btn">Contact Me</a> <!-- Call-to-action button -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2> <!-- Section heading with decoration -->
+            <p>Hello! I'm a web developer specializing in creating modern and responsive websites. With expertise in HTML, CSS, and JavaScript, I build websites that not only look great but also deliver an excellent user experience across all devices.</p>
+        </div>
+    </section>
+
+    <!-- Skills section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2 class="section-title">My Skills</h2> <!-- Section heading -->
+            <div class="skills-container"> <!-- Container for skill cards -->
+                <div class="skill-card"> <!-- Individual skill card -->
+                    <div class="skill-icon">HTML</div> <!-- Skill icon -->
+                    <h3>HTML5</h3> <!-- Skill name -->
+                    <p>Creating semantic and accessible web structure</p> <!-- Skill description -->
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">CSS</div>
+                    <h3>CSS3</h3>
+                    <p>Styling websites with modern techniques</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">JS</div>
+                    <h3>JavaScript</h3>
+                    <p>Adding interactivity and dynamic elements</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2> <!-- Section heading -->
+            <div class="projects-grid"> <!-- Grid for project cards -->
+                <div class="project-card"> <!-- Individual project card -->
+                    <div class="project-img" style="background-image: url('/api/placeholder/400/200');"></div> <!-- Project image -->
+                    <div class="project-info"> <!-- Project information -->
+                        <h3>E-commerce Website</h3> <!-- Project title -->
+                        <p>A responsive online store with shopping cart functionality</p> <!-- Project description -->
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img" style="background-image: url('/api/placeholder/400/200');"></div>
+                    <div class="project-info">
+                        <h3>Portfolio Template</h3>
+                        <p>A customizable portfolio template for creative professionals</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img" style="background-image: url('/api/placeholder/400/200');"></div>
+                    <div class="project-info">
+                        <h3>Blog Platform</h3>
+                        <p>A clean and modern blog with content management</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2> <!-- Section heading -->
+            <div class="contact-form"> <!-- Contact form container -->
+                <input type="text" class="form-control" placeholder="Your Name"> <!-- Name input field -->
+                <input type="email" class="form-control" placeholder="Your Email"> <!-- Email input field -->
+                <textarea class="form-control" rows="5" placeholder="Your Message"></textarea> <!-- Message textarea -->
+                <a href="#" class="btn">Send Message</a> <!-- Submit button -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-icons"> <!-- Social media icons -->
+                <a href="#" class="social-icon">FB</a> <!-- Facebook icon -->
+                <a href="#" class="social-icon">TW</a> <!-- Twitter icon -->
+                <a href="#" class="social-icon">IG</a> <!-- Instagram icon -->
+                <a href="#" class="social-icon">LI</a> <!-- LinkedIn icon -->
+            </div>
+            <p>&copy; 2025 My Portfolio. All rights reserved By Ghulam Mustafa.</p>
+            
+        </div>
+    </footer>
+</body>
+</html>
