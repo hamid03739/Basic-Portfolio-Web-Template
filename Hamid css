@@ -1,0 +1,46 @@
+📝 `index.html`
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hamid Ali - Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Hamid Ali</h1>
+    <p>Student of Building & Architectural Engineering</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hello! I'm Hamid Ali, passionate about design, innovation, and architecture. I love creating building layouts and exploring smart design tools.</p>
+  </section>
+
+  <section id="projects">
+    <h2>My Projects</h2>
+    <ul>
+      <li>🏠 House Design using AutoCAD</li>
+      <li>🏗️ 3D Building Model in SketchUp</li>
+      <li>📐 Site Planning & Surveying</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: meerhamidk@gmail.com</p>
+    <p>LinkedIn: linkedin.com/in/hamidali</p>
+  </section>
+<footer>
+    <p>© 2025 Hamid Ali. All rights reserved.</p>
+  </footer>
+</body>
+</html>
