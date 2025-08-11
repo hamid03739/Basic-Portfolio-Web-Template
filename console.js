@@ -1,0 +1,2 @@
+//this is js file
+console.log("hello");
